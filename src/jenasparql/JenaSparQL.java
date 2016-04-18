@@ -44,12 +44,14 @@ public class JenaSparQL {
         InfModel inference = ModelFactory.createInfModel(reasoner, scheme,data);
         
         StmtIterator iter;
-        iter = inferencia.listStatements();
-        System.out.println("----------------");
+        Resource juan = inferencia.getResource(ns+"juan");
+        iter = inferencia.listStatements(juan, RDF.Type,(RDFNode)null);
         while(iter.hasNext()){
             Statement statement = iter.nextStatement();
             System.out.println("--->" PrintUtil.print(statement));
         }
+        
+        
         
     }
     
