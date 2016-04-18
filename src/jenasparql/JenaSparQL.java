@@ -5,6 +5,8 @@
  */
 package jenasparql;
 
+import java.util.Iterator;
+
 /**
  *
  * @author lala
@@ -51,7 +53,17 @@ public class JenaSparQL {
             System.out.println("--->" PrintUtil.print(statement));
         }
         
+        //Check for inconsistences
+        ValidityReport validacion = inferencia.validate();
         
+        if(validacion.isValid()){
+            System.out.println("OK!");
+        }
+        else{
+            for(Iterator interv = validacion.getReports(); interv.hasNext();){
+                System.out.println(interv.next());
+            }
+        }
         
     }
     

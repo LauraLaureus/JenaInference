@@ -1,0 +1,5 @@
+@prefix eg: <urn:si2:ej2>
+
+eg:juan a eg:Joven;
+    eg:madre "Rosa" ;
+    eg:edad 13 .
