@@ -40,6 +40,16 @@ public class JenaSparQL {
             System.out.println("--->" PrintUtil.print(statement));
         }
         
+        Reasoner reasoner = ReasonerRegistry.getRDFSSimpleReasoner();
+        InfModel inference = ModelFactory.createInfModel(reasoner, scheme,data);
+        
+        StmtIterator iter;
+        iter = inferencia.listStatements();
+        System.out.println("----------------");
+        while(iter.hasNext()){
+            Statement statement = iter.nextStatement();
+            System.out.println("--->" PrintUtil.print(statement));
+        }
         
     }
     
